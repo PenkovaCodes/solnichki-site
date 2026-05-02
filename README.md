@@ -1,126 +1,121 @@
-# Солнички — Website
+# Солнички (Solnichki)
 
-Премиум бранд за персонализирани солници.
+Premium Bulgarian brand — personalized salt & pepper shakers.
 
-## 🚀 Бърз старт
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Stripe account (for payments)
+
+### Installation
 
 ```bash
+cd solnichki-site
 npm install
+```
+
+### Environment Variables
+
+Copy `.env.example` to `.env.local` and fill in your keys:
+
+```bash
+cp .env.example .env.local
+```
+
+Required variables:
+- `STRIPE_SECRET_KEY` — from Stripe Dashboard
+- `STRIPE_PUBLISHABLE_KEY` — from Stripe Dashboard
+- `STRIPE_WEBHOOK_SECRET` — from configured webhook endpoint
+- `NEXT_PUBLIC_SITE_URL` — your production URL (default: http://localhost:3000)
+
+Optional:
+- `CLOUDINARY_*` — for image uploads (not yet implemented)
+- `RESEND_API_KEY` — for order confirmation emails
+
+### Run Locally
+
+```bash
 npm run dev
 ```
 
-Отвори [http://localhost:3000](http://localhost:3000) в браузър.
+Open http://localhost:3000
 
-## 📋 Изисквания
-
-- Node.js 18+
-- npm / yarn / pnpm
-
-## 🔧 Конфигурация
-
-1. Копирай `.env.example` в `.env.local` и попълни:
-
-```
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_PUBLISHABLE_KEY=pk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-```
-
-2. **Stripe Setup**
-   - Създай Stripe account на [stripe.com](https://stripe.com)
-   - В Developers → API keys копирай test ключовете
-   - За да работи webhook, стартирай Stripe CLI:
-     ```bash
-     stripe listen --forward-to localhost:3000/api/stripe-webhook
-     ```
-   - Копирай webhook signing secret в `.env.local`
-
-3. **Cloudinary Setup** (наскоро)
-   - Създай акаунт в [cloudinary.com](https://cloudinary.com)
-   - Намери твоя `cloud_name`, `api_key`, `api_secret`
-   - Попълни в `.env.local`
-
-## 🏗 Структура на проекта
-
-```
-src/
-├── app/
-│   ├── api/
-│   │   ├── create-payment-intent/route.ts  ← Stripe PaymentIntent
-│   │   ├── stripe-webhook/route.ts          ← Webhook handler
-│   │   └── upload-image/route.ts            ← Image upload (Cloudinary soon)
-│   ├── checkout/
-│   │   └── page.tsx                         ← Checkout page with Stripe Elements
-│   ├── layout.tsx                           ← Root layout with fonts
-│   └── page.tsx                             ← Landing page
-├── components/
-│   ├── Navbar.tsx
-│   ├── Hero.tsx
-│   ├── Section.tsx
-│   ├── Gallery.tsx
-│   ├── Mission.tsx
-│   ├── Process.tsx
-│   ├── NoLimits.tsx
-│   ├── Pricing.tsx
-│   └── Footer.tsx
-└── app/
-    └── globals.css                          ← Tailwind + CSS variables
-```
-
-## 🖼 Изображения
-
-Продуктовите снимки са в `public/images/`. Всички изображения са ръчно изработени и се зареждат от клиентските файлове.
-
-**Забележка:** Image upload momentalно пази във временна папка. Ще се интегрира Cloudinary скоро.
-
-## 💳 Плащане
-
-Използваме **Stripe Elements** за вграден checkout.
-- Тестови карти: `4242 4242 4242 4242` (мощност 1€)
-- CVC: `123`
-- Валидна дата: бъдеща
-
-## 🌐 Deploy
-
-### Vercel (препоръчително)
-
-1. Push кода в GitHub repository
-2. В [Vercel](https://vercel.com) импортирай проекта
-3. Добави Environment Variables от `.env.local`
-4. Deploy!
-
-### Други хостове
-
-Увери се, че поддържат Next.js 15+ и serverless functions.
-
-## 🧪 Тестване
+### Build for Production
 
 ```bash
 npm run build
 npm start
 ```
 
-Провери:
-- [ ] Landing page растерира правилно на мобилни (min 380px)
-- [ ] Всички copy е на български
-- [ ] Цветовете съответстват на палитрата: `#E3CF7D`, `#0A699D`, `#044465`
-- [ ] Stripe Elements се показва и работи с тестови карти
-- [ ] Checkout формата валидира задължителните полета
-- [ ] Плащането преминава към success страница (`/blagodarim`)
+## 📦 Tech Stack
 
-## 📝 Следващи стъпки
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Payments:** Stripe (Stripe Elements)
+- **Fonts:** Cormorant Garamond + Manrope (Google Fonts)
 
-- [ ] Конвертиране на лого в SVG (от `цветове и лого.docx`)
-- [ ] Интеграция на Cloudinary за image upload
-- [ ] Настройване на email изпращане (webhook → nodemailer / Resend)
-- [ ] Добавяне на shipping calculation
-- [ ] Добавяне на order management панел (админ)
-- [ ] SEO оптимизация (Open Image, structured data)
+## 🔧 Configuration
 
-## 📄 Лиценз
+### Stripe Setup
 
-Private — всички права запазени.
+1. Create a Stripe account
+2. Get test keys from Developers → API keys
+3. Add them to `.env.local`
+4. (Optional) Set up webhook endpoint for payment events:
+   ```bash
+   stripe listen --forward-to localhost:3000/api/stripe-webhook
+   ```
 
----
+### Pricing
 
-Създадено с ❤ за Солнички.
+- 1 солничка — 46 €
+- 2 солнички — 89.99 €
+- 3 солнички — 135.99 €
+- 4 солнички — 184.99 €
+
+Production time: up to 6 business days after payment.
+
+## 📁 Project Structure
+
+```
+src/
+  app/
+    api/
+      create-payment-intent/route.ts
+      stripe-webhook/route.ts
+      upload-image/route.ts   # placeholder
+    checkout/page.tsx        # payment flow
+    blagodarim/page.tsx      # thank you page
+    page.tsx                 # landing page
+  components/               # UI components
+public/
+  images/                  # product photos & logos
+```
+
+## 🚢 Deployment
+
+Recommended: **Vercel** (zero-config)
+
+1. Push to GitHub
+2. Import repo in Vercel
+3. Set environment variables
+4. Deploy
+
+### Post-Deploy
+
+1. Update `NEXT_PUBLIC_SITE_URL` to your production domain
+2. Configure Stripe webhook to point to `https://yourdomain.com/api/stripe-webhook`
+3. Switch Stripe keys to live mode
+4. (Optional) Set up Cloudinary for image uploads
+5. (Optional) Configure email service (Resend) for order confirmations
+
+## 📄 License
+
+Private — all rights reserved by Солнички.
+
+## 🙋 Contact
+
+solnichki@gmail.com
