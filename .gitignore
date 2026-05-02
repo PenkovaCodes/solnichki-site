@@ -26,3 +26,6 @@ next-env.d.ts
 # Misc
 .DS_Store
 *.log
+
+# Local order storage
+.cache/
