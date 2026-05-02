@@ -62,6 +62,23 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
+          {/* Legal */}
+          <div className="space-y-4">
+            <h4 className="font-serif text-lg font-semibold">Информация</h4>
+            <ul className="space-y-2 text-white/70">
+              <li>
+                <Link href="/terms" className="hover:text-flax transition-colors">
+                  Условия за ползване
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="hover:text-flax transition-colors">
+                  Политика за поверителност
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
