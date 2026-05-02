@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Marck_Script } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -16,13 +16,20 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const marck = Marck_Script({
+  variable: "--font-marck",
+  subsets: ["latin", "cyrillic"],
+  weight: "400",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Солнички — Ръчно изработени персонализирани солници",
   description: "Премиум солници с лика на хората, които обичаш. Ръчно изработени в България. Изработка до 6 работни дни.",
   openGraph: {
     title: "Солнички — Ръчно изработени персонализирани солници",
     description: "Премиум солници с лика на хората, които обичаш. Ръчно изработени в България.",
-    images: ["/images/снимки_снилчки_image1.png"], // Will be replaced with actual hero image
+    images: ["/images/product-7.png"],
     type: "website",
     locale: "bg_BG",
   },
@@ -35,8 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bg" className={`${cormorant.variable} ${manrope.variable} antialiased`}>
-      <body className="min-h-screen bg-white text-astronaut-blue font-sans">
+    <html
+      lang="bg"
+      className={`${cormorant.variable} ${manrope.variable} ${marck.variable} antialiased`}
+    >
+      <body className="min-h-screen bg-cream text-astronaut-blue font-sans">
         {children}
       </body>
     </html>

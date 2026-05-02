@@ -2,14 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cream: #E8D8B5;
+  --cream-light: #EFE2C4;
+  --cream-dark: #D9C49B;
+  --astro: #044465;
+  --cerulean: #0A699D;
+  --flax: #E3CF7D;
+  --ink: #1A1B1E;
+}
+
 html {
   scroll-behavior: smooth;
+  background-color: var(--cream);
 }
 
 body {
   font-family: var(--font-manrope);
-  color: #044465;
-  background-color: #FFFFFF;
+  color: var(--astro);
+  background-color: var(--cream);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,4 +29,62 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-cormorant);
   font-weight: 600;
   line-height: 1.15;
+}
+
+::selection {
+  background: var(--astro);
+  color: var(--cream-light);
+}
+
+/* A subtle warm grain that takes the plastic-y feel off the cream */
+.bg-grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.07  0 0 0 0 0.05  0 0 0 0 0.03  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Drops a near-white image background onto a cream surface so the figure floats free */
+.shaker-cutout {
+  mix-blend-mode: multiply;
+  filter: contrast(1.05) saturate(1.04);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-manrope);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: .3;
+}
+
+/* Wordmark — the cursive Солнички brand mark with hairline ringing dots */
+.wordmark-dot {
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  border: 1.5px solid currentColor;
+  border-radius: 9999px;
+  vertical-align: middle;
+  margin: 0 0.18em 0.15em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
