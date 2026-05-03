@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Солнички">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Pacifico&amp;subset=cyrillic&amp;display=swap');
+      .wm-text { font-family: 'Pacifico', cursive; font-weight: 400; fill: #044465; }
+      .wm-dot { fill: #044465; }
+    </style>
+  </defs>
+  <circle class="wm-dot" cx="60" cy="170" r="36"/>
+  <circle class="wm-dot" cx="940" cy="170" r="36"/>
+  <text x="500" y="225" text-anchor="middle" class="wm-text" font-size="240">Солнички</text>
+</svg>

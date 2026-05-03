@@ -9,6 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        cream: {
+          DEFAULT: '#E8D8B5',
+          light: '#EFE2C4',
+          dark: '#D9C49B',
+          deeper: '#C9B384',
+        },
         flax: {
           DEFAULT: '#E3CF7D',
           light: '#E9D99F',
@@ -24,17 +30,39 @@ const config: Config = {
           light: '#06688D',
           dark: '#03334A',
         },
+        ink: '#1A1B1E',
       },
       fontFamily: {
         serif: ['var(--font-cormorant)', 'Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['var(--font-manrope)', 'Manrope', 'system-ui', 'sans-serif'],
+        script: ['var(--font-pacifico)', '"Pacifico"', 'cursive'],
       },
       fontSize: {
-        'hero': ['clamp(2.5rem, 8vw, 5rem)', { lineHeight: '1.05' }],
-        'section': ['clamp(1.75rem, 4vw, 3rem)', { lineHeight: '1.15' }],
-        'body-desktop': ['1.125rem', { lineHeight: '1.6' }],
-        'body-mobile': ['1.0625rem', { lineHeight: '1.6' }],
-        'label': ['0.75rem', { letterSpacing: '0.12em', lineHeight: '1.5' }],
+        wordmark: ['clamp(4rem, 14vw, 11rem)', { lineHeight: '0.9' }],
+        hero: ['clamp(2.5rem, 8vw, 5rem)', { lineHeight: '1.05' }],
+        section: ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.1' }],
+        eyebrow: ['0.7rem', { letterSpacing: '0.32em', lineHeight: '1.5' }],
+        'body-desktop': ['1.125rem', { lineHeight: '1.65' }],
+        'body-mobile': ['1.0625rem', { lineHeight: '1.65' }],
+        label: ['0.75rem', { letterSpacing: '0.18em', lineHeight: '1.5' }],
+      },
+      letterSpacing: {
+        wider: '.08em',
+        widest: '.32em',
+      },
+      keyframes: {
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-12px)' },
+        },
+      },
+      animation: {
+        'fade-up': 'fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both',
+        float: 'float 6s ease-in-out infinite',
       },
     },
   },

@@ -1,58 +1,74 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-astronaut-blue text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-flax flex items-center justify-center">
-                <span className="text-astronaut-blue font-serif text-2xl">С</span>
-              </div>
-              <span className="font-serif text-2xl font-semibold">Солнички</span>
-            </div>
-            <p className="text-white/70 leading-relaxed max-w-xs">
-              Премиум бранд за персонализирани солници — ръчно изработени миниатюрни фигурки с лицата на хората, които обичаш.
-            </p>
-          </div>
+    <footer className="relative bg-astronaut-blue text-cream-light pt-20 pb-10 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-50"
+        style={{
+          background:
+            'radial-gradient(40% 60% at 80% 20%, rgba(227,207,125,0.12) 0%, transparent 70%)',
+        }}
+      />
 
-          {/* Contact */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="border-b border-cream-light/15 pb-12 mb-12 flex items-center gap-6">
+          <Image
+            src="/images/logo-1.png"
+            alt=""
+            width={88}
+            height={88}
+            className="rounded-full shadow-lg shrink-0"
+          />
+          <Image
+            src="/images/wordmark-light.svg"
+            alt="Солнички"
+            width={420}
+            height={134}
+            className="h-auto max-w-[260px] sm:max-w-[360px]"
+          />
+        </div>
+        <p className="-mt-4 mb-12 max-w-md text-cream-light/75 leading-relaxed">
+          Премиум бранд за персонализирани солници. Ръчно изработени
+          миниатюрни фигурки с лицата на хората, които обичаш.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-12 mb-14">
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Контакти</h4>
-            <div className="space-y-2 text-white/70">
+            <h4 className="eyebrow text-cream-light/60">Контакт</h4>
+            <div className="space-y-2 text-cream-light/85">
               <p>
-                <span className="font-medium">Имейл:</span>{' '}
                 <a href="mailto:solnichki@gmail.com" className="hover:text-flax transition-colors">
                   solnichki@gmail.com
                 </a>
               </p>
-              <p>
-                <span className="font-medium">Instagram:</span>{' '}
-                {/* TODO: Add Instagram handle @ */}
-                <span className="italic text-white/50">(未完)</span>
-              </p>
+              <p className="text-cream-light/55 italic">Instagram скоро</p>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Навигация</h4>
-            <ul className="space-y-2 text-white/70">
+            <h4 className="eyebrow text-cream-light/60">Навигация</h4>
+            <ul className="space-y-2 text-cream-light/85">
+              <li>
+                <a href="#products" className="hover:text-flax transition-colors">
+                  Опции и цени
+                </a>
+              </li>
               <li>
                 <a href="#what-is" className="hover:text-flax transition-colors">
-                  Какво е
+                  За бранда
+                </a>
+              </li>
+              <li>
+                <a href="#past-orders" className="hover:text-flax transition-colors">
+                  Минали поръчки
                 </a>
               </li>
               <li>
                 <a href="#process" className="hover:text-flax transition-colors">
                   Процес
-                </a>
-              </li>
-              <li>
-                <a href="#pricing" className="hover:text-flax transition-colors">
-                  Цени
                 </a>
               </li>
               <li>
@@ -63,10 +79,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Информация</h4>
-            <ul className="space-y-2 text-white/70">
+            <h4 className="eyebrow text-cream-light/60">Информация</h4>
+            <ul className="space-y-2 text-cream-light/85">
               <li>
                 <Link href="/terms" className="hover:text-flax transition-colors">
                   Условия за ползване
@@ -81,11 +96,9 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-white/20 text-center">
-          <p className="text-sm text-white/60">
-            © 2026 Солнички · Ръчно изработено в България
-          </p>
+        <div className="pt-8 border-t border-cream-light/15 flex flex-col sm:flex-row sm:justify-between gap-4 text-xs text-cream-light/55">
+          <p>© 2026 Солнички</p>
+          <p>Ръчно изработено в България</p>
         </div>
       </div>
     </footer>
