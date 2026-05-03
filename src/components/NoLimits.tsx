@@ -9,8 +9,8 @@ export default function NoLimits() {
         </div>
 
         <p className="font-serif text-section text-astronaut-blue leading-tight max-w-3xl mx-auto">
-          Майка, баща, баба, приятели, партньор —{' '}
-          <em className="italic text-deep-cerulean">или Травис от „Бруталика&ldquo;</em>.
+          Майка, баща, баба, приятели, партньор.{' '}
+          <em className="italic text-deep-cerulean">А защо не и Майкъл Джексън?</em>
         </p>
 
         <p className="mt-8 font-sans text-body-desktop leading-relaxed text-astronaut-blue/75 max-w-2xl mx-auto">

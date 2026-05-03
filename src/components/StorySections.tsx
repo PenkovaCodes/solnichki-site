@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 const pastOrders = [
-  { src: '/images/product-2.png', alt: 'Поръчка — мъж в работни дрехи', tilt: -6, top: '6%', left: '4%', size: 230, depth: 0.18, delay: 0 },
-  { src: '/images/product-4.png', alt: 'Поръчка — дама в черна рокля', tilt: 5, top: '2%', left: '64%', size: 250, depth: 0.32, delay: 0.05 },
-  { src: '/images/product-5.png', alt: 'Поръчка — баба с очила', tilt: -3, top: '36%', left: '46%', size: 200, depth: 0.12, delay: 0.1 },
-  { src: '/images/product-9.png', alt: 'Поръчка — готвач', tilt: 7, top: '54%', left: '6%', size: 230, depth: 0.24, delay: 0.15 },
-  { src: '/images/product-10.png', alt: 'Поръчка — дама в традиционни дрехи', tilt: -4, top: '60%', left: '70%', size: 240, depth: 0.34, delay: 0.2 },
-  { src: '/images/product-13.png', alt: 'Поръчка — фигурка в розово', tilt: 4, top: '24%', left: '28%', size: 190, depth: 0.16, delay: 0.25 },
+  { src: '/images/product-2.png', alt: 'Поръчка: мъж в работни дрехи', tilt: -6, top: '6%', left: '4%', size: 230, depth: 0.18, delay: 0 },
+  { src: '/images/product-4.png', alt: 'Поръчка: дама в черна рокля', tilt: 5, top: '2%', left: '64%', size: 250, depth: 0.32, delay: 0.05 },
+  { src: '/images/product-5.png', alt: 'Поръчка: баба с очила', tilt: -3, top: '36%', left: '46%', size: 200, depth: 0.12, delay: 0.1 },
+  { src: '/images/product-9.png', alt: 'Поръчка: готвач', tilt: 7, top: '54%', left: '6%', size: 230, depth: 0.24, delay: 0.15 },
+  { src: '/images/product-10.png', alt: 'Поръчка: дама в традиционни дрехи', tilt: -4, top: '60%', left: '70%', size: 240, depth: 0.34, delay: 0.2 },
+  { src: '/images/product-13.png', alt: 'Поръчка: фигурка в розово', tilt: 4, top: '24%', left: '28%', size: 190, depth: 0.16, delay: 0.25 },
 ];
 
 /**
@@ -67,12 +67,12 @@ function WhatIsSection() {
 
             <div className="space-y-5 max-w-xl text-body-desktop text-astronaut-blue/85 leading-relaxed">
               <p>
-                Солнички е премиум бранд за персонализирани солници — ръчно
+                Солнички е премиум бранд за персонализирани солници. Ръчно
                 изработени миниатюрни фигурки с лицата на хората, които обичаш.
                 Всяка солничка е уникално произведение, създадено специално за теб.
               </p>
               <p>
-                Тя е практична — използва се всеки ден, на всяко хранене. Всеки
+                Тя е практична. Използва се всеки ден, на всяко хранене. Всеки
                 път, когато подправяш храната си, ще се сещаш за някого. Всеки
                 път, когато погледнеш масата си, ще усещаш присъствие.
               </p>

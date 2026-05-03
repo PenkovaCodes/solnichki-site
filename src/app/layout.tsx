@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope, Marck_Script } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Pacifico } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -16,18 +16,18 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const marck = Marck_Script({
-  variable: "--font-marck",
+const pacifico = Pacifico({
+  variable: "--font-pacifico",
   subsets: ["latin", "cyrillic"],
   weight: "400",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Солнички — Ръчно изработени персонализирани солници",
+  title: "Солнички | Ръчно изработени персонализирани солници",
   description: "Премиум солници с лика на хората, които обичаш. Ръчно изработени в България. Изработка до 6 работни дни.",
   openGraph: {
-    title: "Солнички — Ръчно изработени персонализирани солници",
+    title: "Солнички | Ръчно изработени персонализирани солници",
     description: "Премиум солници с лика на хората, които обичаш. Ръчно изработени в България.",
     images: ["/images/product-7.png"],
     type: "website",
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="bg"
-      className={`${cormorant.variable} ${manrope.variable} ${marck.variable} antialiased`}
+      className={`${cormorant.variable} ${manrope.variable} ${pacifico.variable} antialiased`}
     >
       <body className="min-h-screen bg-cream text-astronaut-blue font-sans">
         {children}

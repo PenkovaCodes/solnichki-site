@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Wordmark from './Wordmark';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -14,13 +14,26 @@ export default function Footer() {
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-cream-light/15 pb-12 mb-12">
-          <Wordmark size="md" variant="solid" className="text-cream-light" />
-          <p className="mt-6 max-w-md text-cream-light/75 leading-relaxed">
-            Премиум бранд за персонализирани солници — ръчно изработени
-            миниатюрни фигурки с лицата на хората, които обичаш.
-          </p>
+        <div className="border-b border-cream-light/15 pb-12 mb-12 flex items-center gap-6">
+          <Image
+            src="/images/logo-1.png"
+            alt=""
+            width={88}
+            height={88}
+            className="rounded-full shadow-lg shrink-0"
+          />
+          <Image
+            src="/images/wordmark-light.svg"
+            alt="Солнички"
+            width={420}
+            height={134}
+            className="h-auto max-w-[260px] sm:max-w-[360px]"
+          />
         </div>
+        <p className="-mt-4 mb-12 max-w-md text-cream-light/75 leading-relaxed">
+          Премиум бранд за персонализирани солници. Ръчно изработени
+          миниатюрни фигурки с лицата на хората, които обичаш.
+        </p>
 
         <div className="grid md:grid-cols-3 gap-12 mb-14">
           <div className="space-y-4">

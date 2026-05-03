@@ -21,7 +21,7 @@ const options: ProductOption[] = [
     unit: '€',
     blurb: 'За един човек, един спомен, една маса.',
     detail:
-      'Уникална миниатюрна фигурка, изработена ръчно по твоя снимка и описание — за себе си или за някого, когото обичаш.',
+      'Уникална миниатюрна фигурка, изработена ръчно по твоя снимка и описание. За себе си или за някого, когото обичаш.',
     image: '/images/product-3.png',
   },
   {
@@ -32,7 +32,7 @@ const options: ProductOption[] = [
     unit: '€',
     blurb: 'Двойката, която стои редом до теб всеки ден.',
     detail:
-      'Двойка солнички — сол и пипер — създадени една за друга. Перфектен подарък за родителите, за половинката или за теб и любимия човек.',
+      'Двойка солнички за сол и пипер, създадени една за друга. Перфектен подарък за родителите, за половинката или за теб и любимия човек.',
     image: '/images/product-1.png',
   },
   {
@@ -54,7 +54,7 @@ const options: ProductOption[] = [
     unit: '€',
     blurb: 'За поводите, които си струва да помниш цял живот.',
     detail:
-      'Четири фигурки за специален повод — сватба, юбилей, годишнина — или за това, че просто искаш всички около масата да са там, дори когато не са.',
+      'Четири фигурки за специален повод като сватба, юбилей или годишнина. За това, че просто искаш всички около масата да са там, дори когато не са.',
     image: '/images/product-14.png',
   },
 ];
@@ -86,16 +86,6 @@ function ProductSection({ option, reverse }: { option: ProductOption; reverse: b
           {/* Image side */}
           <div className="lg:col-span-7 relative">
             <div className="relative aspect-[4/5] max-w-xl mx-auto">
-              {/* Roman numeral watermark */}
-              <span
-                aria-hidden
-                className={`absolute font-serif text-[18rem] md:text-[22rem] leading-none text-astronaut-blue/8 select-none pointer-events-none ${
-                  reverse ? '-right-8 -top-12' : '-left-8 -top-12'
-                }`}
-              >
-                {option.numeral}
-              </span>
-
               <div className="absolute inset-0">
                 <Image
                   src={option.image}
@@ -105,6 +95,20 @@ function ProductSection({ option, reverse }: { option: ProductOption; reverse: b
                   className="object-contain drop-shadow-[0_30px_40px_rgba(4,68,101,0.25)]"
                 />
               </div>
+
+              {/* Roman numeral overlay — sits on top of the figurine */}
+              <span
+                aria-hidden
+                className={`absolute z-10 font-serif text-[14rem] md:text-[18rem] leading-none select-none pointer-events-none mix-blend-multiply ${
+                  reverse ? '-right-4 sm:-right-8 top-2' : '-left-4 sm:-left-8 top-2'
+                }`}
+                style={{
+                  color: 'rgba(4,68,101,0.55)',
+                  textShadow: '0 2px 0 rgba(232,216,181,0.4)',
+                }}
+              >
+                {option.numeral}
+              </span>
             </div>
           </div>
 

@@ -26,7 +26,7 @@ export default function Mission() {
         </p>
 
         <p className="text-body-desktop leading-relaxed text-cream-light/85 max-w-2xl mx-auto">
-          Вярваме, че домът отразява личността на своя стопанин — и всяка
+          Вярваме, че домът отразява личността на своя стопанин. Всяка
           солничка, която създаваме, носи история, емоция и характер.
         </p>
 

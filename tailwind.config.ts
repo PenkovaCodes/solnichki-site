@@ -35,7 +35,7 @@ const config: Config = {
       fontFamily: {
         serif: ['var(--font-cormorant)', 'Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['var(--font-manrope)', 'Manrope', 'system-ui', 'sans-serif'],
-        script: ['var(--font-marck)', '"Marck Script"', '"Caveat"', 'cursive'],
+        script: ['var(--font-pacifico)', '"Pacifico"', 'cursive'],
       },
       fontSize: {
         wordmark: ['clamp(4rem, 14vw, 11rem)', { lineHeight: '0.9' }],

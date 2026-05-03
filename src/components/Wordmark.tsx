@@ -1,55 +1,27 @@
-import { CSSProperties } from 'react';
-
-type Variant = 'outline' | 'solid';
-type Size = 'sm' | 'md' | 'lg' | 'xl';
+import Image from 'next/image';
 
 interface WordmarkProps {
-  variant?: Variant;
-  size?: Size;
+  /** Width in px for the SVG wordmark */
+  width?: number;
   className?: string;
-  /** Override CSS color used for stroke / fill */
-  color?: string;
+  eager?: boolean;
 }
 
-const sizeMap: Record<Size, string> = {
-  sm: 'text-3xl',
-  md: 'text-5xl md:text-6xl',
-  lg: 'text-7xl md:text-8xl',
-  xl: 'text-wordmark',
-};
-
 /**
- * The Солнички wordmark — cursive script with twin ringed dots either side.
- * `outline` traces a hairline contour that reads against busy backgrounds.
+ * The Солнички wordmark — rendered from an SVG asset so it can be swapped
+ * for a hand-lettered PNG by replacing /public/images/wordmark.svg with
+ * /public/images/wordmark.png and updating the src below.
  */
-export default function Wordmark({
-  variant = 'outline',
-  size = 'lg',
-  className = '',
-  color,
-}: WordmarkProps) {
-  const style: CSSProperties = color ? { color } : {};
-
-  const textStyle: CSSProperties =
-    variant === 'outline'
-      ? {
-          color: 'transparent',
-          WebkitTextStroke: '1.25px currentColor',
-          textShadow: '0 1px 0 rgba(0,0,0,.04)',
-        }
-      : {};
-
+export default function Wordmark({ width = 480, className = '', eager }: WordmarkProps) {
   return (
-    <span
-      aria-label="Солнички"
-      className={`inline-flex items-center justify-center font-script leading-none select-none ${sizeMap[size]} ${className}`}
-      style={style}
-    >
-      <span className="wordmark-dot" aria-hidden />
-      <span style={textStyle} className="px-2">
-        Солнички
-      </span>
-      <span className="wordmark-dot" aria-hidden />
-    </span>
+    <Image
+      src="/images/wordmark.svg"
+      alt="Солнички"
+      width={width}
+      height={Math.round((width / 1000) * 320)}
+      className={`select-none ${className}`}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'high' : 'auto'}
+    />
   );
 }
